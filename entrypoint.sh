@@ -7,7 +7,7 @@ TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 BACKUP_DIR="backup_$TIMESTAMP"
 
 # Dump the MySQL database
-mydumper --host "$MYSQL_HOST" --user "$MYSQL_USER" --password "$MYSQL_PASSWORD" --port "$MYSQL_PORT" --database "$MYSQL_DATABASE" -C -c -o "$BACKUP_DIR"
+mydumper --host "$MYSQL_HOST" --user "$MYSQL_USER" --password "$MYSQL_PASSWORD" --port "$MYSQL_PORT" --database "$MYSQL_DATABASE" -t 1 -C -c -o "$BACKUP_DIR"
 
 # Configure rclone for Cloudflare R2
 rclone config touch
